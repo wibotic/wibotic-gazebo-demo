@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>wibotic_models</name>
+  <version>1.2.0</version>
+  <description>Desciptions for the WiBotic models</description>
+  
+  <license>Creative Commons Attribution-NoDerivatives 4.0</license>
+  <author email="info@wibotic.com">WiBotic</author>
+  <maintainer email="info@wibotic.com">WiBotic</maintainer>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <exec_depend>urdf</exec_depend>
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>gazebo_plugins</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>gazebo</exec_depend>
+
+  <export>
+    <gazebo_ros gazebo_media_path="${prefix}" gazebo_model_path="${prefix}/models"/>
+  </export>
+  
+</package>

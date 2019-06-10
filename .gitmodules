@@ -1,0 +1,6 @@
+[submodule "wibotic_models/wibotic-git-models"]
+	path = wibotic_models/wibotic-git-models
+	url = https://github.com/wibotic/gazebo-models.git
+[submodule "wibotic_coil_plugin"]
+	path = wibotic_coil_plugin
+	url = https://github.com/wibotic/gazebo-coil-plugin.git

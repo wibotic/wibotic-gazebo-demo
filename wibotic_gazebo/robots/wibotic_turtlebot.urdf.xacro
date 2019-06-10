@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot name="wibotic_turtlebot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find turtlebot_description)/urdf/turtlebot_common_library.urdf.xacro" />
+  <xacro:include filename="$(find kobuki_description)/urdf/kobuki.urdf.xacro" />
+  <xacro:include filename="$(find turtlebot_description)/urdf/stacks/hexagons.urdf.xacro"/>
+  <xacro:include filename="$(find turtlebot_description)/urdf/sensors/kinect.urdf.xacro"/>
+  <xacro:include filename="$(find wibotic_models)/urdf/rc100.urdf.xacro"/>
+  <xacro:include filename="$(find wibotic_models)/urdf/oc210.urdf.xacro"/>
+
+  <kobuki/>
+  <stack_hexagons parent="base_link"/>
+  <sensor_kinect  parent="base_link"/>
+  <wibotic_rc100  parent="base_link" p_x="-0.0545" p_y="0.16" p_z="0.22"/>
+  <wibotic_oc210  parent="base_link" p_x="0" p_y="-0.16" p_z="0.285" o_r="0" o_p="1.570796" o_y="-1.570796"/>
+  
+  <gazebo>
+    <plugin name="rx_plugin" filename="libwibotic_coil_plugin.so">
+      <coilType>receive</coilType>
+    </plugin>
+  </gazebo>
+</robot>
