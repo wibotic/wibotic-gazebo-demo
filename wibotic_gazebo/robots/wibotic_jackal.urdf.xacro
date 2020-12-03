@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot name="wibotic_jackal" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find jackal_description)/urdf/jackal.urdf.xacro" />
+  <xacro:include filename="$(find wibotic_models)/urdf/rc100.urdf.xacro"/>
+  <xacro:include filename="$(find wibotic_models)/urdf/oc210.urdf.xacro"/>
+
+  <xacro:wibotic_rc100  parent="base_link" p_x="0.225" p_y="-0.0545" p_z="0" o_y="1.570796"/>
+  <xacro:wibotic_oc210  parent="base_link" p_x="-0.21" p_y="0" p_z="0.06" o_r="0" o_p="1.570796" o_y="3.141592"/>
+</robot>

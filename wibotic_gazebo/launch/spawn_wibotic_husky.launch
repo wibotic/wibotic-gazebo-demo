@@ -1,0 +1,20 @@
+<launch>
+  <arg name="x" default="0.0"/>
+  <arg name="y" default="-10.0"/>
+  <arg name="z" default="5.0"/>
+  <arg name="yaw" default="0.0" />
+
+  <include file="$(find husky_control)/launch/control.launch"/>
+  <include file="$(find husky_control)/launch/teleop.launch"/>
+  
+  <param
+    name="robot_description"
+    command="$(find xacro)/xacro --inorder '$(find wibotic_gazebo)/robots/wibotic_husky.urdf.xacro'"
+  />
+  
+  <node
+    name="spawn_wibotic_husky" pkg="gazebo_ros" type="spawn_model"
+    args="-urdf -param robot_description -model husky
+          -x $(arg x) -y $(arg y) -z $(arg z) -R 0 -P 0 -Y $(arg yaw)"
+  />
+</launch>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot name="wibotic_husky" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find husky_description)/urdf/husky.urdf.xacro" />
+  <xacro:include filename="$(find wibotic_models)/urdf/rc100.urdf.xacro"/>
+  <xacro:include filename="$(find wibotic_models)/urdf/oc300.urdf.xacro"/>
+
+  <xacro:wibotic_rc100  parent="base_link" p_x="0.47" p_y="-0.0545" p_z="0.12" o_y="1.570796"/>
+  <xacro:wibotic_oc300  parent="base_link" p_x="-0.34" p_y="0" p_z="0.18" o_r="-0.785398" o_y="1.570796"/>
+</robot>

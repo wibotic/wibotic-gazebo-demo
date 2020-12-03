@@ -1,0 +1,46 @@
+<launch>
+    <arg name="platform" default="$(optenv ROBOT_PLATFORM husky)" />
+    <arg name="x" default="28.49"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="0.05"/>
+    <arg name="yaw" default="0.0" />
+    
+    <arg name="use_sim_time" default="true" />
+    <arg name="gui" default="true" />
+    <arg name="headless" default="false" />
+    <arg name="world_name" default="$(find wibotic_gazebo)/worlds/parking_lot.world" />
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="debug" value="0" />
+      <arg name="gui" value="$(arg gui)" />
+      <arg name="use_sim_time" value="$(arg use_sim_time)" />
+      <arg name="headless" value="$(arg headless)" />
+      <arg name="world_name" value="$(arg world_name)" />
+    </include>
+    
+    <include file="$(find wibotic_gazebo)/launch/spawn_wibotic_$(arg platform).launch">
+      <arg name="x" value="$(arg x)"/>
+      <arg name="y" value="$(arg y)"/>
+      <arg name="z" value="$(arg z)"/>
+      <arg name="yaw" value="$(arg yaw)"/>
+    </include>
+    
+    <!--Spawn a WiBotic transmit coil-->
+    <include file="$(find wibotic_models)/launch/spawn_tc200.launch">
+      <arg name="name" value="tc200_1"/>
+      <arg name="static" value="true"/>
+      <arg name="x" value="29"/>
+      <arg name="y" value="-0.21"/>
+      <arg name="z" value="0.2"/>
+      <arg name="yaw" value="1.570796"/>
+    </include>
+    
+    <!--Spawn a WiBotic high power transmitter-->
+    <include file="$(find wibotic_models)/launch/spawn_tr300.launch">
+      <arg name="name" value="tr300_1"/>
+      <arg name="static" value="true"/>
+      <arg name="x" value="29.070213"/>
+      <arg name="y" value="0.938900"/>
+      <arg name="z" value="0"/>
+      <arg name="yaw" value="1.570796"/>
+    </include>
+</launch>
